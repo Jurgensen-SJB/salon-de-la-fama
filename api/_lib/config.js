@@ -7,6 +7,19 @@ const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const SPOTIFY_MARKET = process.env.SPOTIFY_MARKET || "US";
 const SPOTIFY_DEFAULT_QUERY = process.env.SPOTIFY_DEFAULT_QUERY || "genre:pop";
+const DEFAULT_SPOTIFY_GENRE_QUERIES = [
+    "genre:pop",
+    "genre:rock",
+    "genre:hip-hop",
+    "genre:r&b",
+    "genre:latin",
+    "genre:jazz",
+    "genre:electronic",
+    "genre:country",
+    "genre:blues",
+    "genre:classical"
+];
+const SPOTIFY_GENRE_QUERIES = parseList(process.env.SPOTIFY_GENRE_QUERIES, DEFAULT_SPOTIFY_GENRE_QUERIES);
 
 function assertConfig() {
     if (!TMDB_API_KEY) {
@@ -31,7 +44,22 @@ module.exports = {
         clientSecret: SPOTIFY_CLIENT_SECRET,
         market: SPOTIFY_MARKET,
         defaultQuery: SPOTIFY_DEFAULT_QUERY,
-        maxLimit: 50
+        maxLimit: 50,
+        genreQueries: SPOTIFY_GENRE_QUERIES
     }
 };
+
+function parseList(value, fallback) {
+    if (!value) {
+        return fallback.slice();
+    }
+    const items = value
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean);
+    if (!items.length) {
+        return fallback.slice();
+    }
+    return Array.from(new Set(items));
+}
 

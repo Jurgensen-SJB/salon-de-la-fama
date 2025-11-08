@@ -15,6 +15,30 @@
             "dest": "/api/$1"
         },
         {
+            "src": "/assets/(.*)",
+            "dest": "/public_html/assets/$1"
+        },
+        {
+            "src": "/index.html",
+            "dest": "/public_html/views/index.html"
+        },
+        {
+            "src": "/artistas.html",
+            "dest": "/public_html/views/artistas.html"
+        },
+        {
+            "src": "/peliculas.html",
+            "dest": "/public_html/views/peliculas.html"
+        },
+        {
+            "src": "/components.html",
+            "dest": "/public_html/views/components.html"
+        },
+        {
+            "src": "/$",
+            "dest": "/public_html/views/index.html"
+        },
+        {
             "src": "/(.*)",
             "dest": "/public_html/$1"
         }

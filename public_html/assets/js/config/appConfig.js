@@ -9,7 +9,7 @@ export const TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
 
 export const SPOTIFY_DEFAULTS = {
     market: "US",
-    defaultQuery: "genre:pop"
+    defaultQuery: "all"
 };
 
 export const PLACEHOLDERS = {
