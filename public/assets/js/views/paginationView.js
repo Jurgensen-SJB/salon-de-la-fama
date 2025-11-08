@@ -28,29 +28,56 @@ function createPageButtons(current, total, buttonClass, windowSize = 5) {
     if (total <= 1) {
         return `<button type="button" class="${buttonClass} active" disabled>1</button>`;
     }
-    const range = [];
-    let start = Math.max(1, current - Math.floor(windowSize / 2));
-    let end = start + windowSize - 1;
-    if (end > total) {
-        end = total;
-        start = Math.max(1, end - windowSize + 1);
+    const maxButtons = Math.max(2, windowSize);
+    if (total <= maxButtons) {
+        return createSequentialButtons(1, total, current, buttonClass).join("");
     }
+
+    const interiorSlots = Math.max(1, maxButtons - 2);
+    let start = Math.max(2, current - Math.floor(interiorSlots / 2));
+    let end = start + interiorSlots - 1;
+
+    if (end >= total) {
+        end = total - 1;
+        start = end - interiorSlots + 1;
+    }
+    if (start <= 2) {
+        start = 2;
+        end = start + interiorSlots - 1;
+    }
+    if (end >= total) {
+        end = total - 1;
+    }
+
+    const parts = [];
+    parts.push(renderPageButton(1, current === 1, buttonClass));
+
+    if (start > 2) {
+        parts.push(`<span class="mx-1">…</span>`);
+    }
+
+    parts.push(...createSequentialButtons(start, end, current, buttonClass));
+
+    if (end < total - 1) {
+        parts.push(`<span class="mx-1">…</span>`);
+    }
+
+    parts.push(renderPageButton(total, current === total, buttonClass));
+
+    return parts.join("");
+}
+
+function createSequentialButtons(start, end, current, buttonClass) {
+    const buttons = [];
     for (let page = start; page <= end; page += 1) {
-        const isActive = page === current;
-        range.push(`<button type="button" class="${buttonClass} ${isActive ? "active" : ""}" ${isActive ? "disabled" : ""} data-page="${page}">${page}</button>`);
+        buttons.push(renderPageButton(page, page === current, buttonClass));
     }
-    if (start > 1) {
-        range.unshift(`<button type="button" class="${buttonClass}" data-page="1">1</button>`);
-        if (start > 2) {
-            range.splice(1, 0, `<span class="mx-2">…</span>`);
-        }
-    }
-    if (end < total) {
-        if (end < total - 1) {
-            range.push(`<span class="mx-2">…</span>`);
-        }
-        range.push(`<button type="button" class="${buttonClass}" data-page="${total}">${total}</button>`);
-    }
-    return range.join("");
+    return buttons;
+}
+
+function renderPageButton(page, active, buttonClass) {
+    const classes = `${buttonClass} ${active ? "active" : ""}`;
+    const disabled = active ? "disabled" : "";
+    return `<button type="button" class="${classes}" ${disabled} data-page="${page}">${page}</button>`;
 }
 
