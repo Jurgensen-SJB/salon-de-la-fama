@@ -11,35 +11,12 @@
     ],
     "routes": [
         {
-            "handle": "filesystem"
-        },
-        {
-            "src": "/assets/(.*)",
-            "dest": "/assets/$1"
-        },
-        {
-            "src": "/index.html",
-            "dest": "/views/index.html"
-        },
-        {
-            "src": "/artistas.html",
-            "dest": "/views/artistas.html"
-        },
-        {
-            "src": "/peliculas.html",
-            "dest": "/views/peliculas.html"
-        },
-        {
-            "src": "/components.html",
-            "dest": "/views/components.html"
-        },
-        {
-            "src": "/$",
-            "dest": "/views/index.html"
+            "src": "/api/(.*)",
+            "dest": "/api/$1"
         },
         {
             "src": "/(.*)",
-            "dest": "/views/$1"
+            "dest": "/public_html/$1"
         }
     ]
 }
