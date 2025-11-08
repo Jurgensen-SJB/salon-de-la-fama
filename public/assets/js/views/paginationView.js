@@ -6,7 +6,9 @@ export function renderPaginationControls(container, state, variant = "primary") 
     }
     const buttonClass = variant === "light" ? "btn btn-sm btn-outline-light" : "btn btn-sm btn-outline-primary";
     const textClass = variant === "light" ? "text-white-50" : "text-muted";
-    const pageButtons = createPageButtons(state.currentPage, state.totalPages, buttonClass);
+    const windowSizeAttr = parseInt(container.dataset.windowSize || "", 10);
+    const windowSize = Number.isFinite(windowSizeAttr) && windowSizeAttr > 0 ? windowSizeAttr : 5;
+    const pageButtons = createPageButtons(state.currentPage, state.totalPages, buttonClass, windowSize);
     container.innerHTML = `
         <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
             <div class="d-flex align-items-center mb-3 mb-lg-0">
@@ -22,11 +24,10 @@ export function renderPaginationControls(container, state, variant = "primary") 
     `;
 }
 
-function createPageButtons(current, total, buttonClass) {
+function createPageButtons(current, total, buttonClass, windowSize = 5) {
     if (total <= 1) {
         return `<button type="button" class="${buttonClass} active" disabled>1</button>`;
     }
-    const windowSize = 5;
     const range = [];
     let start = Math.max(1, current - Math.floor(windowSize / 2));
     let end = start + windowSize - 1;
