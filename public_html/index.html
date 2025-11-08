@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Salón de la Fama cinematográfico y musical con datos de TMDb y Spotify.">
+    <meta name="author" content="Salón de la Fama">
+    <title>Salón de la Fama | Cine y Música</title>
+    <link rel="icon" type="image/png" href="assets/imgs/icon.png">
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/leadmark.css">
+    <link rel="stylesheet" href="assets/css/hall-of-fame.css">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <img src="assets/imgs/logo.png" alt="Logotipo Salón de la Fama">
+            </a>
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Alternar navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#peliculas">Top Películas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#artistas">Top Artistas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="ml-md-4 nav-link btn btn-primary btn-sm rounded" href="peliculas.html">Ver todas las películas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="ml-md-2 nav-link btn btn-outline-primary btn-sm rounded" href="artistas.html">Ver todos los artistas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header">
+        <div class="overlay text-center">
+            <h1 class="subtitle">Salón de la Fama</h1>
+            <h1 class="title">Celebramos a las grandes historias y voces</h1>
+            <p class="lead mt-4">Explora un top curado con las películas mejor calificadas y los artistas más escuchados del momento.</p>
+        </div>
+        <div class="shape">
+            <svg viewBox="0 0 1500 200">
+                <path d="m 0,240 h 1500.4828 v -71.92164 c 0,0 -286.2763,-81.79324 -743.19024,-81.79324 C 300.37862,86.28512 0,168.07836 0,168.07836 Z"></path>
+            </svg>
+        </div>
+        <div class="mouse-icon"><div class="wheel"></div></div>
+    </header>
+
+    <main>
+        <section id="peliculas" class="section pt-0">
+            <div class="container">
+                <h6 class="section-title text-center">Top Películas</h6>
+                <p class="section-subtitle text-center mb-5">Ranking descendente según la puntuación global de TMDb.</p>
+                <div class="row" data-role="movies" data-limit="12" data-pages="1"></div>
+                <div class="text-center mt-4">
+                    <a class="btn btn-outline-primary" href="peliculas.html">Ver todas las películas</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="artistas" class="section has-img-bg">
+            <div class="container">
+                <h6 class="section-title text-center">Top Artistas</h6>
+                <p class="section-subtitle text-center mb-5">Mostramos 60 artistas por página. Usa la paginación para recorrer la lista completa.</p>
+                <div class="row" data-role="artists" data-paginated="true" data-page-size="60" data-size="large" data-controls="artists-home-pagination" data-controls-variant="light"></div>
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4">
+                    <div class="pagination-controls mb-3 mb-md-0 text-center text-md-left" id="artists-home-pagination"></div>
+                    <a class="btn btn-outline-light" href="artistas.html">Ver lista extendida</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-4 border-top border-secondary">
+        <div class="container text-center">
+            <p class="mb-0 small">&copy; <script>document.write(new Date().getFullYear());</script> Salón de la Fama. Creado por Basilik.</p>
+        </div>
+    </footer>
+
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Listado completo de películas destacadas del Salón de la Fama.">
+    <meta name="author" content="Salón de la Fama">
+    <title>Salón de la Fama | Todas las películas</title>
+    <link rel="icon" type="image/png" href="assets/imgs/icon.png">
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/leadmark.css">
+    <link rel="stylesheet" href="assets/css/hall-of-fame.css">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40">
+    <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/imgs/logo.png" alt="Logotipo Salón de la Fama">
+            </a>
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Alternar navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#peliculas">Top Películas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#artistas">Top Artistas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="ml-md-4 nav-link btn btn-outline-primary btn-sm rounded" href="artistas.html">Ver todos los artistas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header header-small">
+        <div class="overlay">
+            <h1 class="subtitle">Salón de la Fama</h1>
+            <h1 class="title">Todas las películas destacadas</h1>
+            <p class="lead mt-3">Explora el catálogo completo proveniente de TMDb, ordenado de mayor a menor puntuación.</p>
+        </div>
+    </header>
+
+    <main class="section pt-0">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4">
+                <div>
+                    <h6 class="section-title mb-2">Catálogo completo</h6>
+                    <p class="section-subtitle mb-0">Mostramos 60 resultados por página. Usa la paginación para recorrer toda la lista.</p>
+                </div>
+            </div>
+            <div class="row" data-role="movies" data-paginated="true" data-page-size="60" data-controls="movies-pagination" data-size="large"></div>
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4">
+                <div class="pagination-controls mb-3 mb-md-0" id="movies-pagination"></div>
+                <a class="btn btn-outline-primary" href="index.html">Volver al inicio</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4 border-top border-secondary">
+        <div class="container text-center">
+            <p class="mb-0 small">&copy; <script>document.write(new Date().getFullYear());</script> Salón de la Fama. Datos de TMDb.</p>
+        </div>
+    </footer>
+
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

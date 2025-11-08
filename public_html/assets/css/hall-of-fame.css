@@ -1,0 +1,73 @@
+/* Estilos complementarios para el Salón de la Fama */
+
+.header-small {
+    min-height: 55vh;
+}
+
+.header-small .overlay {
+    padding-top: 140px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .header-small .overlay {
+        padding-top: 180px;
+    }
+}
+
+.badge-rank {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.badge-rank.badge-success {
+    background-color: #6ab04c;
+}
+
+.card .card-text {
+    font-size: 0.95rem;
+}
+
+.card .card-footer {
+    background-color: transparent;
+}
+
+.section.has-img-bg .card {
+    background-color: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+.section.has-img-bg .card .card-text {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.section.has-img-bg .card .badge {
+    color: #fff;
+}
+
+.section.has-img-bg .card .btn-outline-success {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.section.has-img-bg .card .btn-outline-success:hover {
+    background-color: #6ab04c;
+    border-color: #6ab04c;
+}
+
+.pagination-controls .page-status {
+    font-weight: 600;
+}
+
+.pagination-controls button {
+    min-width: 140px;
+}
+

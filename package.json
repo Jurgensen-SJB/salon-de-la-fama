@@ -1,0 +1,13 @@
+{
+    "name": "salon-de-la-fama",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "build": "echo \"Proyecto estático, sin paso de compilación\"",
+        "start": "vercel dev"
+    },
+    "engines": {
+        "node": ">=18"
+    }
+}
+
