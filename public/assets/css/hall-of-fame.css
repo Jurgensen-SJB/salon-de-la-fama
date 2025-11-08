@@ -63,11 +63,43 @@
     border-color: #6ab04c;
 }
 
+.pagination-controls {
+    text-align: center;
+}
+
 .pagination-controls .page-status {
     font-weight: 600;
 }
 
-.pagination-controls button {
-    min-width: 140px;
+.pagination-controls [data-action] {
+    min-width: 120px;
+}
+
+.pagination-controls .btn-group {
+    gap: 0.5rem;
+}
+
+.pagination-controls .btn-group .btn {
+    min-width: 56px;
+    margin: 0;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.pagination-controls .btn-group span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+}
+
+@media (max-width: 575px) {
+    .pagination-controls [data-action] {
+        min-width: 100px;
+    }
+
+    .pagination-controls .btn-group .btn {
+        min-width: 48px;
+    }
 }
 
