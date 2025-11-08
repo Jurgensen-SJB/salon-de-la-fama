@@ -15,31 +15,31 @@
         },
         {
             "src": "/assets/(.*)",
-            "dest": "/public_html/assets/$1"
+            "dest": "/assets/$1"
         },
         {
             "src": "/index.html",
-            "dest": "/public_html/views/index.html"
+            "dest": "/views/index.html"
         },
         {
             "src": "/artistas.html",
-            "dest": "/public_html/views/artistas.html"
+            "dest": "/views/artistas.html"
         },
         {
             "src": "/peliculas.html",
-            "dest": "/public_html/views/peliculas.html"
+            "dest": "/views/peliculas.html"
         },
         {
             "src": "/components.html",
-            "dest": "/public_html/views/components.html"
+            "dest": "/views/components.html"
         },
         {
             "src": "/$",
-            "dest": "/public_html/views/index.html"
+            "dest": "/views/index.html"
         },
         {
             "src": "/(.*)",
-            "dest": "/public_html/views/$1"
+            "dest": "/views/$1"
         }
     ]
 }
