@@ -9,6 +9,7 @@ import { PaginatedSectionController } from "./paginatedSectionController.js";
 export function initApp() {
     document.addEventListener("DOMContentLoaded", () => {
         initSmoothScroll();
+        initNavbarBrandSwap();
         hydrateMovieSections();
         hydrateArtistSections();
     });
@@ -84,5 +85,33 @@ function hydrateArtistSections() {
                 .catch((error) => renderError(container, error));
         }
     });
+}
+
+function initNavbarBrandSwap() {
+    const navbar = document.querySelector(".navbar.custom-navbar");
+    if (!navbar) {
+        return;
+    }
+    const brandImg = navbar.querySelector(".navbar-brand img[data-logo-default]");
+    if (!brandImg) {
+        return;
+    }
+    const defaultSrc = brandImg.dataset.logoDefault || brandImg.getAttribute("src");
+    const affixSrc = brandImg.dataset.logoAffix || defaultSrc;
+    if (defaultSrc === affixSrc) {
+        return;
+    }
+
+    function updateLogo() {
+        const shouldUseAffix = navbar.classList.contains("affix") || window.scrollY > 10;
+        const targetSrc = shouldUseAffix ? affixSrc : defaultSrc;
+        if (brandImg.getAttribute("src") !== targetSrc) {
+            brandImg.setAttribute("src", targetSrc);
+        }
+    }
+
+    updateLogo();
+    window.addEventListener("scroll", updateLogo, { passive: true });
+    navbar.addEventListener("transitionend", updateLogo);
 }
 
