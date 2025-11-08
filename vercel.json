@@ -11,8 +11,7 @@
     ],
     "routes": [
         {
-            "src": "/api/(.*)",
-            "dest": "/api/$1"
+            "handle": "filesystem"
         },
         {
             "src": "/assets/(.*)",
@@ -40,7 +39,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "/public_html/$1"
+            "dest": "/public_html/views/$1"
         }
     ]
 }
